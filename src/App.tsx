@@ -6,7 +6,9 @@ import { useFileSync } from './hooks/useFileSync';
 import Quiz from './components/Quiz';
 import WordManager from './components/WordManager';
 
-type Page = 'quiz' | 'manage';
+import ReviewPage from './components/ReviewPage';
+
+type Page = 'quiz' | 'manage' | 'review';
 
 function exportJSON(words: Word[]) {
   const blob = new Blob([JSON.stringify(words, null, 2)], { type: 'application/json' });
@@ -50,6 +52,24 @@ function App() {
   const [page, setPage] = useState<Page>('quiz');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [reviewWords, setReviewWords] = useState<Word[] | undefined>(undefined);
+  const [darkMode, setDarkMode] = useState(() => {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  const toggleTheme = useCallback(() => {
+    setDarkMode((prev) => {
+      const next = !prev;
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+      return next;
+    });
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+  }, [darkMode]);
 
   const {
     dirHandle,
@@ -159,9 +179,11 @@ function App() {
 
   if (loading) {
     return (
-      <div className="app-center">
-        <div className="loading-spinner" />
-        <p className="loading-text">加载中...</p>
+      <div className="app">
+        <div className="app-center">
+          <div className="loading-spinner" />
+          <p className="loading-text">加载中...</p>
+        </div>
       </div>
     );
   }
@@ -170,7 +192,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="app-header-left">
-          <h1>背单词</h1>
+          <h1>背单词 </h1>
           {dirName ? (
             <span className="app-dir-badge">
               <span className="sync-dot" />
@@ -179,14 +201,14 @@ function App() {
             </span>
           ) : (
             <span className="app-dir-badge app-dir-badge--offline">
-              未关联目录
+              Beta
             </span>
           )}
         </div>
         <nav className="app-nav">
           <button
             className={`btn btn-nav ${page === 'quiz' ? 'active' : ''}`}
-            onClick={() => setPage('quiz')}
+            onClick={() => { setReviewWords(undefined); setPage('quiz'); }}
           >
             学习
           </button>
@@ -195,6 +217,15 @@ function App() {
             onClick={() => setPage('manage')}
           >
             管理单词
+          </button>
+          <button
+            className={`btn btn-nav ${page === 'review' ? 'active' : ''}`}
+            onClick={() => { setReviewWords(undefined); setPage('review'); }}
+          >
+            错题复习
+          </button>
+          <button className="btn-icon" onClick={toggleTheme} title={darkMode ? '切换亮色模式' : '切换暗色模式'}>
+            {darkMode ? '☀️' : '🌙'}
           </button>
         </nav>
       </header>
@@ -210,7 +241,14 @@ function App() {
 
       <main className="app-main">
         {page === 'quiz' ? (
-          <Quiz words={words} />
+          <Quiz words={words} reviewWords={reviewWords} />
+        ) : page === 'review' ? (
+          <ReviewPage
+            onStartReview={(w) => {
+              setReviewWords(w);
+              setPage('quiz');
+            }}
+          />
         ) : (
           <WordManager
             words={words}
@@ -228,6 +266,10 @@ function App() {
           />
         )}
       </main>
+
+      <footer className="app-footer">
+        Copyright &copy; Author : Hongsheng Xing &nbsp; Email: <a href="mailto:starxsky@outlook.com">starxsky@outlook.com</a>
+      </footer>
     </div>
   );
 }

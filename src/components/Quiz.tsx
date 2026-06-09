@@ -1,8 +1,9 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useRef } from 'react';
 import type { Word } from '../types';
 
 interface QuizProps {
   words: Word[];
+  reviewWords?: Word[];
 }
 
 interface WordStat {
@@ -19,20 +20,89 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+function buildWeightedQueue(words: Word[]): Word[] {
+  const queue: Word[] = [];
+  for (const w of words) {
+    const weight = Math.max(1, Math.ceil((w.freq ?? 3) / 3));
+    for (let i = 0; i < weight; i++) {
+      queue.push(w);
+    }
+  }
+  return shuffle(queue);
+}
+
 type Phase = 'start' | 'playing' | 'feedback' | 'results';
 
-export default function Quiz({ words }: QuizProps) {
+function exportWrongWords(wrongList: WordStat[]) {
+  const words = wrongList.map((s) => s.word);
+  const blob = new Blob([JSON.stringify(words, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const date = new Date().toISOString().slice(0, 10);
+  a.download = `wrong-words-${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+interface ProgressData {
+  version: 1;
+  timestamp: string;
+  queue: Word[];
+  queueIndex: number;
+  queueTotal: number;
+  currentWord: Word | null;
+  stats: Array<{ word: Word; wrongCount: number }>;
+}
+
+function exportProgress(
+  queue: Word[],
+  queueIndex: number,
+  queueTotal: number,
+  currentWord: Word | null,
+  stats: Map<string, WordStat>
+) {
+  const data: ProgressData = {
+    version: 1,
+    timestamp: new Date().toISOString(),
+    queue,
+    queueIndex,
+    queueTotal,
+    currentWord,
+    stats: Array.from(stats.values()).map((s) => ({
+      word: s.word,
+      wrongCount: s.wrongCount,
+    })),
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `quiz-progress-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+export default function Quiz({ words, reviewWords }: QuizProps) {
   const [phase, setPhase] = useState<Phase>('start');
   const [queue, setQueue] = useState<Word[]>([]);
+  const [queueIndex, setQueueIndex] = useState(0);
+  const [queueTotal, setQueueTotal] = useState(0);
   const [currentWord, setCurrentWord] = useState<Word | null>(null);
   const [options, setOptions] = useState<Word[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [answerState, setAnswerState] = useState<'waiting' | 'correct' | 'wrong'>('waiting');
   const [stats, setStats] = useState<Map<string, WordStat>>(new Map());
+  const importRef = useRef<HTMLInputElement>(null);
 
   const filteredWords = useMemo(
     () => words.filter((w) => w.word && w.meaning),
     [words]
+  );
+
+  const quizPool = useMemo(
+    () => reviewWords ?? filteredWords,
+    [reviewWords, filteredWords]
   );
 
   const correctCount = useMemo(() => {
@@ -52,16 +122,19 @@ export default function Quiz({ words }: QuizProps) {
   }, [stats]);
 
   const startQuiz = useCallback(() => {
-    const q = shuffle(filteredWords);
+    const q = buildWeightedQueue(quizPool);
+    setQueueTotal(q.length);
     setQueue(q.slice(1));
+    setQueueIndex(0);
     setCurrentWord(q[0]);
-    const dist = shuffle(q.slice(1, 4));
+    const others = filteredWords.filter((w) => w.id !== q[0].id);
+    const dist = shuffle(others).slice(0, 3);
     setOptions(shuffle([q[0], ...dist]));
     setSelectedId(null);
     setAnswerState('waiting');
     setStats(new Map());
     setPhase('playing');
-  }, [filteredWords]);
+  }, [quizPool, filteredWords]);
 
   const nextWord = useCallback(() => {
     if (queue.length === 0) {
@@ -75,6 +148,7 @@ export default function Quiz({ words }: QuizProps) {
     setCurrentWord(next);
     setOptions(shuffle([next, ...dist]));
     setQueue(rest);
+    setQueueIndex((prev) => prev + 1);
     setSelectedId(null);
     setAnswerState('waiting');
     setPhase('playing');
@@ -107,24 +181,61 @@ export default function Quiz({ words }: QuizProps) {
     [answerState, currentWord]
   );
 
-  if (filteredWords.length < 2) {
+  const handleImportProgress = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data: ProgressData = JSON.parse(reader.result as string);
+        if (!data || data.version !== 1) throw new Error('无效的进度文件');
+        setQueue(data.queue);
+        setQueueIndex(data.queueIndex);
+        setQueueTotal(data.queueTotal);
+        setCurrentWord(data.currentWord);
+        setSelectedId(null);
+        setAnswerState('waiting');
+        setStats(new Map(data.stats.map((s) => [s.word.id, { word: s.word, wrongCount: s.wrongCount }])));
+        if (data.currentWord) {
+          const others = words.filter((w) => w.word && w.meaning && w.id !== data.currentWord!.id);
+          const dist = shuffle(others).slice(0, 3);
+          setOptions(shuffle([data.currentWord, ...dist]));
+        }
+        setPhase('playing');
+      } catch {
+        alert('导入失败：无效的进度文件');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  }, [words]);
+
+  if (quizPool.length < 2) {
     return (
       <div className="quiz-empty">
         <h2>单词不足</h2>
-        <p>至少需要 2 个单词才能开始学习，当前仅 {filteredWords.length} 个。</p>
+        <p>至少需要 2 个单词才能开始学习，当前仅 {quizPool.length} 个。</p>
       </div>
     );
   }
 
   if (phase === 'start') {
+    const totalWeighted = quizPool.reduce(
+      (sum, w) => sum + Math.max(1, Math.ceil((w.freq ?? 3) / 3)),
+      0
+    );
     return (
       <div className="quiz">
         <div className="quiz-start">
-          <h2>准备好了吗？</h2>
-          <p>共 {filteredWords.length} 个单词</p>
+          <h2>{reviewWords ? '错题复习' : '准备好了吗？'}</h2>
+          <p>{quizPool.length} 个单词 · 共 {totalWeighted} 题{!reviewWords && '（高频词出现更频繁）'}</p>
           <button className="btn btn-primary" onClick={startQuiz}>
-            开始学习
+            开始{reviewWords ? '复习' : '学习'}
           </button>
+          <button className="btn" onClick={() => importRef.current?.click()} style={{ marginTop: 8 }}>
+            导入进度
+          </button>
+          <input ref={importRef} type="file" accept=".json" onChange={handleImportProgress} style={{ display: 'none' }} />
         </div>
       </div>
     );
@@ -157,6 +268,9 @@ export default function Quiz({ words }: QuizProps) {
                   </div>
                 ))}
               </div>
+              <button className="btn" onClick={() => exportWrongWords(wrongList)} style={{ marginTop: 12 }}>
+                导出错题
+              </button>
             </div>
           )}
 
@@ -175,15 +289,25 @@ export default function Quiz({ words }: QuizProps) {
   }
 
   // playing / feedback
-  const totalCount = filteredWords.length;
   const answeredCount = stats.size;
 
   return (
     <div className="quiz">
       <div className="quiz-progress">
         <span className="quiz-word-count">
-          第 {answeredCount + 1} / {totalCount} 题
+          第 {queueIndex + 1} / {queueTotal} 题
         </span>
+        <span className="quiz-word-count" style={{ marginLeft: 12, opacity: 0.6 }}>
+          · {answeredCount} 个单词已作答
+        </span>
+        {wrongList.length > 0 && (
+          <button className="btn btn-small" onClick={() => exportWrongWords(wrongList)} style={{ marginLeft: 12 }}>
+            错题 ({wrongList.length})
+          </button>
+        )}
+        <button className="btn btn-small" onClick={() => exportProgress(queue, queueIndex, queueTotal, currentWord, stats)} style={{ marginLeft: 8 }}>
+          导出进度
+        </button>
       </div>
 
       <div className="quiz-word-display">

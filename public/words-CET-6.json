@@ -1,0 +1,582 @@
+[
+  {
+    "id": "1",
+    "word": "abandon",
+    "meaning": "放弃，遗弃"
+  },
+  {
+    "id": "2",
+    "word": "brilliant",
+    "meaning": "灿烂的，杰出的"
+  },
+  {
+    "id": "3",
+    "word": "collapse",
+    "meaning": "倒塌，崩溃"
+  },
+  {
+    "id": "4",
+    "word": "diligent",
+    "meaning": "勤奋的"
+  },
+  {
+    "id": "5",
+    "word": "enormous",
+    "meaning": "巨大的"
+  },
+  {
+    "id": "6",
+    "word": "fragile",
+    "meaning": "易碎的，脆弱的"
+  },
+  {
+    "id": "7",
+    "word": "generous",
+    "meaning": "慷慨的，大方的"
+  },
+  {
+    "id": "8",
+    "word": "hesitate",
+    "meaning": "犹豫，踌躇"
+  },
+  {
+    "id": "9",
+    "word": "ignorant",
+    "meaning": "无知的"
+  },
+  {
+    "id": "10",
+    "word": "jealous",
+    "meaning": "嫉妒的"
+  },
+  {
+    "id": "11",
+    "word": "keen",
+    "meaning": "渴望的，敏锐的"
+  },
+  {
+    "id": "12",
+    "word": "launch",
+    "meaning": "发射，启动"
+  },
+  {
+    "id": "13",
+    "word": "magnificent",
+    "meaning": "壮丽的，宏伟的"
+  },
+  {
+    "id": "14",
+    "word": "navigate",
+    "meaning": "导航，航行"
+  },
+  {
+    "id": "15",
+    "word": "obstacle",
+    "meaning": "障碍物"
+  },
+  {
+    "id": "16",
+    "word": "peculiar",
+    "meaning": "奇特的，独特的"
+  },
+  {
+    "id": "17",
+    "word": "reluctant",
+    "meaning": "不情愿的"
+  },
+  {
+    "id": "18",
+    "word": "splendid",
+    "meaning": "壮丽的，极好的"
+  },
+  {
+    "id": "19",
+    "word": "tremendous",
+    "meaning": "巨大的，惊人的"
+  },
+  {
+    "id": "20",
+    "word": "urge",
+    "meaning": "强烈欲望，催促"
+  },
+  {
+    "id": "4ecec757-4493-4e9f-a40a-8614a1b36ca8",
+    "word": "intimidate",
+    "meaning": "恐吓 v."
+  },
+  {
+    "id": "e5521612-e88b-4d70-9685-f3c73f2396ff",
+    "word": "simultaneously",
+    "meaning": "同时 a."
+  },
+  {
+    "id": "d0fc0c53-f310-49f0-b5d1-06830d663ada",
+    "word": "juvenile",
+    "meaning": "青少年的 a."
+  },
+  {
+    "id": "6426ea49-4c81-429c-8494-d97c3a5b857a",
+    "word": "contaminate",
+    "meaning": "污染 v."
+  },
+  {
+    "id": "f30740b0-dcb8-4587-be43-600bb3f32e3a",
+    "word": "evasively",
+    "meaning": "回避地 adj."
+  },
+  {
+    "id": "dc46c408-dd7f-443a-a1f8-c6ed5135eddd",
+    "word": "formidate",
+    "meaning": "强大的 a."
+  },
+  {
+    "id": "00bb95dd-f77b-42c5-9a7b-bb1a26a9b7f1",
+    "word": "hampering",
+    "meaning": "阻碍 n."
+  },
+  {
+    "id": "ebf18351-af23-456a-ae41-bccccbd29389",
+    "word": "indignation",
+    "meaning": "愤慨 n."
+  },
+  {
+    "id": "bc2d6b6f-2ab7-48a9-ac47-6e2cc36c4733",
+    "word": "consulted",
+    "meaning": "咨询 v."
+  },
+  {
+    "id": "3d4d8179-a6ce-452e-81b4-6a4fe2b09d60",
+    "word": "technician",
+    "meaning": "技术人员n."
+  },
+  {
+    "id": "fec2b9ef-97a5-4eb0-b1be-26ecedccee3a",
+    "word": "arbitrating",
+    "meaning": "仲裁 v."
+  },
+  {
+    "id": "a508d571-22e2-4681-a3ee-0c8b1db95ecd",
+    "word": "property",
+    "meaning": "财产 n."
+  },
+  {
+    "id": "8ecb81bf-bd02-4dfa-aefa-e1c5589b6769",
+    "word": "solicitors",
+    "meaning": "事务律师 n."
+  },
+  {
+    "id": "5c248f1d-0747-4211-be7a-bb4124fcbb47",
+    "word": "mediating",
+    "meaning": "调解 v."
+  },
+  {
+    "id": "c18900c3-2750-49d3-9ed6-5f0282525baa",
+    "word": "frighting",
+    "meaning": "v。斗争，战斗"
+  },
+  {
+    "id": "eb8635a8-d0f5-461c-adbe-f7d9d6334e11",
+    "word": "frightening",
+    "meaning": "骇人的 a."
+  },
+  {
+    "id": "91bfd616-a953-40e9-ab03-466f013a04f0",
+    "word": "foreseeing",
+    "meaning": "先前预见 v."
+  },
+  {
+    "id": "bd2d1db8-9c5c-4bde-ab02-a311402fef79",
+    "word": "proposed",
+    "meaning": "提议 v."
+  },
+  {
+    "id": "b1bbbf85-aad8-40e3-bcd8-cb9cb71c26a9",
+    "word": "retrieval",
+    "meaning": "检索v."
+  },
+  {
+    "id": "303add45-0dad-445c-ab9d-d156f70508c2",
+    "word": "irrelevant",
+    "meaning": "不相关的 a,"
+  },
+  {
+    "id": "ed46751e-b9c4-4861-9c95-916d9fecc343",
+    "word": "cognitive",
+    "meaning": "认知的 adj."
+  },
+  {
+    "id": "e6b22be4-fe93-49e5-a897-d7174ce17c89",
+    "word": "cognition",
+    "meaning": "认知 n."
+  },
+  {
+    "id": "d40c8e23-8645-42e8-9c55-f470ac13aece",
+    "word": "crowded",
+    "meaning": "拥挤的 adj."
+  },
+  {
+    "id": "38f14034-1482-4a48-869e-002c698b03fb",
+    "word": "longing",
+    "meaning": "渴望的 adj."
+  },
+  {
+    "id": "daaed3c5-487a-4abf-ad98-ff9fccfff527",
+    "word": "alters",
+    "meaning": "改变 v."
+  },
+  {
+    "id": "41c510d5-cf02-4590-8544-2e6478ca0dcf",
+    "word": "wipe",
+    "meaning": "清扫 v."
+  },
+  {
+    "id": "2e696bda-fd3d-4d21-a3b1-6b89c475a9fb",
+    "word": "disputes",
+    "meaning": "纠纷,争端 n./v."
+  },
+  {
+    "id": "8c37a9d8-8d89-40ad-8469-b237bc95be6e",
+    "word": "concerning",
+    "meaning": "关于，涉及 prep. ；使担忧 v."
+  },
+  {
+    "id": "ddf3fc53-5d62-4365-828d-e9b00120c963",
+    "word": "wages",
+    "meaning": "工资 n."
+  },
+  {
+    "id": "aa0b1184-7687-4ea1-b3ab-669aabf3cfa8",
+    "word": "liberates",
+    "meaning": "v. 解放"
+  },
+  {
+    "id": "3889a2c8-6c8b-4208-ad0c-7dafd3016f37",
+    "word": "tedious",
+    "meaning": "冗长的 adj."
+  },
+  {
+    "id": "46c55fb4-932e-4ea5-95b5-0f98e00db8c0",
+    "word": "labrious",
+    "meaning": "费力的 adj."
+  },
+  {
+    "id": "fe79f602-a4d9-494d-a931-151b3ac5e6b9",
+    "word": "prioritizing",
+    "meaning": "优先考虑 v."
+  },
+  {
+    "id": "f1542ba5-e562-419c-8ab3-8cbe47aa950e",
+    "word": "attitude",
+    "meaning": "态度 n。"
+  },
+  {
+    "id": "70397767-62bb-4220-b692-9dcd0d166c71",
+    "word": "longitude",
+    "meaning": "经度 n. (辅助记忆：long 长 “经线长”）"
+  },
+  {
+    "id": "4e23b7b8-5801-4bb8-a1dc-74112893180e",
+    "word": "habitual",
+    "meaning": "习惯的 adj."
+  },
+  {
+    "id": "939f79bf-1dc0-4490-bc90-20015a32eb18",
+    "word": "irritated",
+    "meaning": "恼火的 a."
+  },
+  {
+    "id": "5e7d6130-f995-45a2-8f8a-5b258e57346c",
+    "word": "toxic",
+    "meaning": "有毒的 a."
+  },
+  {
+    "id": "2ffd72c7-a167-479b-9403-1d670f7d11ff",
+    "word": "traits",
+    "meaning": "特征 n。"
+  },
+  {
+    "id": "cdf6b381-4f2a-477a-a5cd-326ad2d7df76",
+    "word": "exotic",
+    "meaning": "异域风情 adj."
+  },
+  {
+    "id": "7dda23ff-ebcf-422e-b07c-d291048e3788",
+    "word": "courtesy",
+    "meaning": "礼貌 n."
+  },
+  {
+    "id": "7b802220-b9b0-49ef-822b-a279e8f44e87",
+    "word": "aes/the/tic",
+    "meaning": "艺术的 a."
+  },
+  {
+    "id": "4e186d23-67bf-4ec9-afdf-b5f804156810",
+    "word": "convention",
+    "meaning": "习俗 n."
+  },
+  {
+    "id": "71024b69-524b-43b7-9d2c-9938dd82c22f",
+    "word": "convenience",
+    "meaning": "方便 n."
+  },
+  {
+    "id": "4a98df13-6c9a-4fc5-b6fe-43adcba5e0e7",
+    "word": "rid",
+    "meaning": "v.消灭"
+  },
+  {
+    "id": "d005c8d5-cc64-4f45-9664-d248d25c8328",
+    "word": "institution",
+    "meaning": "机构 n。"
+  },
+  {
+    "id": "ffbda42f-ab9e-4d50-89f4-48e3d2eb2028",
+    "word": "in/tui/tion",
+    "meaning": "直觉 n。"
+  },
+  {
+    "id": "9c018fb9-f2be-4f29-b921-5056dd93172a",
+    "word": "emissions",
+    "meaning": "v.释放"
+  },
+  {
+    "id": "f46d52b2-c52f-4265-b8ad-dc5c97195171",
+    "word": "cata/strop/he",
+    "meaning": "灾难 n。"
+  },
+  {
+    "id": "dae7571b-eecf-4ce6-bc17-faabe78cef5b",
+    "word": "indirect",
+    "meaning": "a. 间接的"
+  },
+  {
+    "id": "9a2d3f63-bcfe-4ea4-a4fd-5184a26cd262",
+    "word": "infringe",
+    "meaning": "v。违反"
+  },
+  {
+    "id": "27e5235e-1119-44e2-97ea-b906b4bfb630",
+    "word": "weeding",
+    "meaning": "除草 v."
+  },
+  {
+    "id": "1cc01829-6098-4498-8df4-902b15f93aa8",
+    "word": "incidentally",
+    "meaning": "adv. 顺便"
+  },
+  {
+    "id": "50ab592f-4e95-4258-ba87-1a3bb0cf0d19",
+    "word": "impetus",
+    "meaning": "n. 推动力"
+  },
+  {
+    "id": "3f92523a-593a-4970-9fa0-5a2f47e11e83",
+    "word": "lavish",
+    "meaning": "a. 奢华的"
+  },
+  {
+    "id": "d5049eda-73cd-491a-9420-b1ba0416ce98",
+    "word": "tenured",
+    "meaning": "a. 永久职位的"
+  },
+  {
+    "id": "bb2aaf9d-4316-4552-8ad8-666092397f83",
+    "word": "booster",
+    "meaning": "支持，加强 v."
+  },
+  {
+    "id": "185f9fb6-3a81-4d10-9bce-a13964dc9fa2",
+    "word": "credential",
+    "meaning": "资格 n。"
+  },
+  {
+    "id": "db44c350-70d2-4e4d-8ad7-6a87a60cd30e",
+    "word": "enact",
+    "meaning": "v. 制定"
+  },
+  {
+    "id": "0441e56b-986d-41dd-a138-ebbaf5685316",
+    "word": "hangout",
+    "meaning": "挂出n."
+  },
+  {
+    "id": "fb1a4dc7-7b33-49fe-9f6a-7ed6794bf5f2",
+    "word": "penalty",
+    "meaning": "惩罚 n."
+  },
+  {
+    "id": "11a80795-75be-42aa-81bd-e1a2c1ad12a1",
+    "word": "abusive",
+    "meaning": "a. 虐待性的"
+  },
+  {
+    "id": "a97c9079-bcd9-4f4e-8b24-4eaab1751b0e",
+    "word": "orphanages",
+    "meaning": "孤儿院 n."
+  },
+  {
+    "id": "da867de0-eb7a-4851-b912-22237dde8394",
+    "word": "hallucinations",
+    "meaning": "幻觉 n."
+  },
+  {
+    "id": "fb1376a0-3cb7-4fc0-b96d-3fe570ca02c2",
+    "word": "epidemic",
+    "meaning": "a. 流行性"
+  },
+  {
+    "id": "486021d5-2b7f-4139-93cd-791943af27d2",
+    "word": "prolonged",
+    "meaning": "延长的adj"
+  },
+  {
+    "id": "b9b882f8-be9c-464e-89b0-ffb26a89c5ad",
+    "word": "called off",
+    "meaning": "（短语）取消"
+  },
+  {
+    "id": "4db1599f-bb12-4221-9844-2ece37cb362e",
+    "word": "allurement",
+    "meaning": "n. 诱惑； 引诱"
+  },
+  {
+    "id": "d6935ef9-b2a0-4709-a142-c2914f898ed0",
+    "word": "alternation",
+    "meaning": "n. 交替"
+  },
+  {
+    "id": "9993862f-df22-415d-bec3-1e505c70114a",
+    "word": "permission",
+    "meaning": "n. 许可"
+  },
+  {
+    "id": "1df3993e-7bbb-4e51-9756-d8baf9b668e5",
+    "word": "shrub",
+    "meaning": "n. 灌木丛"
+  },
+  {
+    "id": "558882ba-b859-4315-9328-1dfaf91b06e9",
+    "word": "carbohydrate",
+    "meaning": "n. 碳水化合物"
+  },
+  {
+    "id": "daf82afa-fc76-4916-854d-1203b2dc2358",
+    "word": "antagonist",
+    "meaning": "n. 反派"
+  },
+  {
+    "id": "807bec1c-fc11-44fc-8f0c-deb1a1a966fd",
+    "word": "convoy",
+    "meaning": "n. 车队"
+  },
+  {
+    "id": "d425beae-f0a7-4e36-b94e-ffd531d93095",
+    "word": "delusion",
+    "meaning": "n. 错觉"
+  },
+  {
+    "id": "749a72da-95d6-4787-8ba3-8f9eefcdb5c7",
+    "word": "tangle",
+    "meaning": "v. 缠绕"
+  },
+  {
+    "id": "eef36705-abb8-4d34-adb3-b2e56f2e5af6",
+    "word": "sergeant",
+    "meaning": "n. 士官"
+  },
+  {
+    "id": "2242088d-9624-4737-935a-775a9abef84b",
+    "word": "recession",
+    "meaning": "n. 衰退（经济）"
+  },
+  {
+    "id": "77b5a233-bc7c-4757-98c6-58eee3febeb1",
+    "word": "shabby",
+    "meaning": "adj. 破烂的"
+  },
+  {
+    "id": "5715f704-6e71-4dd6-bde5-a0cde3e16472",
+    "word": "repressive",
+    "meaning": "压抑的 adj."
+  },
+  {
+    "id": "8a194fa2-11b0-41d1-9346-bac0e441138d",
+    "word": "ammunition",
+    "meaning": "n. 弹药"
+  },
+  {
+    "id": "2733baeb-4266-4557-b760-93e14aba7aa4",
+    "word": "aide",
+    "meaning": "n. 助手"
+  },
+  {
+    "id": "1ca51a15-02dc-4c43-b0e0-7a2076b2ae28",
+    "word": "subtlety",
+    "meaning": "n. 微妙的"
+  },
+  {
+    "id": "23c2e93c-e96d-4f37-84de-7a21bf096490",
+    "word": "amplification",
+    "meaning": "n. 放大"
+  },
+  {
+    "id": "25e00d4c-a250-4095-a8dc-411f13d93ce3",
+    "word": "dismantle",
+    "meaning": "v. 拆开"
+  },
+  {
+    "id": "faea490b-2436-428c-99a9-50726c64f36a",
+    "word": "erosive",
+    "meaning": "adj. 腐蚀的"
+  },
+  {
+    "id": "00ceabe7-0958-49e6-b6b1-5efbf9b0f64e",
+    "word": "assassin",
+    "meaning": "n. 刺客"
+  },
+  {
+    "id": "cb472fb0-016d-4766-b0db-1f8d6027cf43",
+    "word": "casualty",
+    "meaning": "n. 伤亡人员"
+  },
+  {
+    "id": "4b120783-f515-483d-8ac5-6b78e7df910f",
+    "word": "crouch",
+    "meaning": "蹲下 v."
+  },
+  {
+    "id": "456ee2eb-02b4-433c-8729-30341c203a15",
+    "word": "fabulous",
+    "meaning": "adj.极好的"
+  },
+  {
+    "id": "bb030e57-f269-49cd-9930-05c6821d7801",
+    "word": "dissent",
+    "meaning": "v. 不同意的"
+  },
+  {
+    "id": "4b77daaa-bb29-40b6-849b-c43a2cf6e4a3",
+    "word": "fury",
+    "meaning": "狂怒"
+  },
+  {
+    "id": "7a1dfdba-8acb-42b7-97d4-8cebc16881f5",
+    "word": "vow",
+    "meaning": "誓约 n。发誓 v."
+  },
+  {
+    "id": "88ef57f3-382e-491d-94a9-5f2163a766af",
+    "word": "waiver",
+    "meaning": "n. 豁免"
+  },
+  {
+    "id": "3fefbfc2-dd61-43bb-8f3b-07d8043b2cb2",
+    "word": "expiration",
+    "meaning": "n. 期满"
+  },
+  {
+    "id": "9b7f5627-d0c0-4aaa-a9e7-845c1080dbf6",
+    "word": "rigor",
+    "meaning": "n. 严厉的"
+  }
+]
